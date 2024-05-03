@@ -39,11 +39,6 @@ class MinimalPublisher : public rclcpp::Node
       rover_pos[0] = pozycja.x;
       rover_pos[1] = pozycja.y;
       rover_pos[2] = orientacja.z;
-
-
-      //zmienna3 = "\nLinear x: " + std::to_string(pozycja.x) + "\nLinear y: " + std::to_string(pozycja.y) + "\nLinear z: " + std::to_string(pozycja.z) + "\nAngular x: " + std::to_string(orientacja.x) + "\nOrientation y: " + std::to_string(orientacja.y) + "\nOrientacja z: " + std::to_string(orientacja.z);
-      //zmienna3 = "\nLinear x: " + std::to_string(rover_pos[0]) + "\nLinear y: " + std::to_string(rover_pos[1]) + "\nOrientacja z: " + std::to_string(rover_pos[2]);
-      //RCLCPP_INFO(this->get_logger(), zmienna3.c_str());
     }
 
 
@@ -55,10 +50,6 @@ class MinimalPublisher : public rclcpp::Node
       {
         time += 0.05;
       }
-
-      //zmienna3 = "\nOrientacja z: " + std::to_string(rover_pos[2]) + "\nCzas: " + std::to_string(time);
-      //RCLCPP_INFO(this->get_logger(), zmienna3.c_str());
-
 
       if(time > 2000.0)
       {
@@ -79,9 +70,6 @@ class MinimalPublisher : public rclcpp::Node
         message.angular.z = (this->multiplier_x_rot)*0.05;
         if((rover_pos[2] <= 0.005) && (rover_pos[2] >= -0.005))
         {
-          //zmienna3 = "\nOrientacja z: " + std::to_string(rover_pos[2]);
-          //RCLCPP_INFO(this->get_logger(), zmienna3.c_str());
-
           is_0_pos_reached = true;
           if((this->get_parameter("pos_x").as_double() - rover_pos[0]) < 0.0)
           {
@@ -131,17 +119,9 @@ class MinimalPublisher : public rclcpp::Node
         }
       }
 
-
-
-
-
       publisher_->publish(message);
-
-      
     }
     
-
-
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
     rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr subscriber_;

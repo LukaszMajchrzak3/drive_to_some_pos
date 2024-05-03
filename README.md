@@ -1,6 +1,6 @@
 # drive_to_some_pos
 ## Opis paczki
-Za pomocą tej paczki możliwe jest sterowanie platformą Husky (a200_0000) - użytkownik podaje zadaną lokalizację, do której następnie zmierza platforma.
+Za pomocą tej paczki możliwe jest sterowanie platformą Husky (a200_0000) - użytkownik podaje zadaną lokalizację, do której następnie zmierza platforma. Node sterujący działaniem został stworzony w języku C++.
 ## Instalacja
 1. W swoim workspace'ie utwórz nową paczkę np. używając polecenia: ros2 pkg create --build-type ament_cmake --license Apache-2.0 drive_to_some_pos (najlepiej jakby nazwa paczki była taka sama jak w tej instrukcji).
 2. Pobierz pliki z GitHuba i przenieś je do folderu utworzonej paczki.
